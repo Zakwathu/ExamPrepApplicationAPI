@@ -8,6 +8,12 @@ var app = express();
 app.set('views', './views');
 app.set('view engine','jade');
 app.engine('jade', jade.__express);
+
+//serve static files
+
+app.use('/css', express.static(__dirname + '/css'));
+app.use('/images', express.static( __dirname + '/images'));
+
 app.listen(process.env.PORT || 80);
 
 app.locals.message = "This page is under construction";
